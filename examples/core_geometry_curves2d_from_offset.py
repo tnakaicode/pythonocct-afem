@@ -19,10 +19,10 @@
 
 from __future__ import print_function
 
-from OCC.Core.gp import gp_Pnt2d
-from OCC.Core.TColgp import TColgp_Array1OfPnt2d
-from OCC.Core.Geom2dAPI import Geom2dAPI_PointsToBSpline
-from OCC.Core.Geom2d import Geom2d_OffsetCurve
+from OCCT.gp import gp_Pnt2d
+from OCCT.TColgp import TColgp_Array1OfPnt2d
+from OCCT.Geom2dAPI import Geom2dAPI_PointsToBSpline
+from OCCT.Geom2d import Geom2d_OffsetCurve
 
 from OCC.Display.SimpleGui import init_display
 display, start_display, add_menu, add_function_to_menu = init_display()

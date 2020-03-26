@@ -15,10 +15,10 @@
 ##You should have received a copy of the GNU Lesser General Public License
 ##along with pythonOCC.  If not, see <http://www.gnu.org/licenses/>.
 
-from OCC.Core.BRepPrimAPI import BRepPrimAPI_MakeBox
-from OCC.Core.AIS import AIS_ColorScale
-from OCC.Core.Graphic3d import Graphic3d_ZLayerId_TopOSD, Graphic3d_TMF_2d
-from OCC.Core.gp import gp_XY, gp_Pnt
+from OCCT.BRepPrimAPI import BRepPrimAPI_MakeBox
+from OCCT.AIS import AIS_ColorScale
+from OCCT.Graphic3d import Graphic3d_ZLayerId_TopOSD, Graphic3d_TMF_2d
+from OCCT.gp import gp_XY, gp_Pnt
 
 from OCC.Display.SimpleGui import init_display
 

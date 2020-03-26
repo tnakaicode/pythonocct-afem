@@ -15,7 +15,7 @@
 ##You should have received a copy of the GNU Lesser General Public License
 ##along with pythonOCC.  If not, see <http://www.gnu.org/licenses/>.
 
-from OCC.Core.gp import gp_Dir
+from OCCT.gp import gp_Dir
 
 d = gp_Dir(0, 0, 1)
 try:

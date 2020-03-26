@@ -1,12 +1,12 @@
-from OCC.Core.BRepFeat import BRepFeat_Gluer
-from OCC.Core.BRepPrimAPI import BRepPrimAPI_MakeBox
+from OCCT.BRepFeat import BRepFeat_Gluer
+from OCCT.BRepPrimAPI import BRepPrimAPI_MakeBox
 from OCC.Display.SimpleGui import init_display
-from OCC.Core.LocOpe import LocOpe_FindEdges
-from OCC.Core.TopAbs import TopAbs_FACE
-from OCC.Core.TopExp import TopExp_Explorer
-from OCC.Core.TopLoc import TopLoc_Location
-from OCC.Core.TopoDS import topods_Face
-from OCC.Core.gp import gp_Pnt, gp_Trsf, gp_Vec
+from OCCT.LocOpe import LocOpe_FindEdges
+from OCCT.TopAbs import TopAbs_FACE
+from OCCT.TopExp import TopExp_Explorer
+from OCCT.TopLoc import TopLoc_Location
+from OCCT.TopoDS import topods_Face
+from OCCT.gp import gp_Pnt, gp_Trsf, gp_Vec
 
 from OCC.Extend.ShapeFactory import center_boundingbox
 

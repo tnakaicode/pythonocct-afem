@@ -26,12 +26,12 @@ try:
 except ImportError:
     import urllib2  # Python2
 
-from OCC.Core.BRepBuilderAPI import BRepBuilderAPI_MakeFace
-from OCC.Core.BRepPrimAPI import BRepPrimAPI_MakePrism
-from OCC.Core.Geom2dAPI import Geom2dAPI_PointsToBSpline
-from OCC.Core.GeomAPI import geomapi
-from OCC.Core.gp import gp_Pnt, gp_Vec, gp_Pnt2d, gp_Pln, gp_Dir
-from OCC.Core.TColgp import TColgp_Array1OfPnt2d
+from OCCT.BRepBuilderAPI import BRepBuilderAPI_MakeFace
+from OCCT.BRepPrimAPI import BRepPrimAPI_MakePrism
+from OCCT.Geom2dAPI import Geom2dAPI_PointsToBSpline
+from OCCT.GeomAPI import geomapi
+from OCCT.gp import gp_Pnt, gp_Vec, gp_Pnt2d, gp_Pln, gp_Dir
+from OCCT.TColgp import TColgp_Array1OfPnt2d
 from OCC.Display.SimpleGui import init_display
    
 from OCC.Extend.ShapeFactory import make_wire, make_edge

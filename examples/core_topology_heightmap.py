@@ -19,16 +19,16 @@ from __future__ import division, print_function
 
 import math
 
-from OCC.Core.gp import gp_Pnt
-from OCC.Core.BRepBuilderAPI import (BRepBuilderAPI_MakeEdge,
+from OCCT.gp import gp_Pnt
+from OCCT.BRepBuilderAPI import (BRepBuilderAPI_MakeEdge,
                                      BRepBuilderAPI_MakeFace,
                                      BRepBuilderAPI_MakeWire)
-from OCC.Core.TColgp import TColgp_Array2OfPnt
-from OCC.Core.GeomAPI import GeomAPI_PointsToBSplineSurface
-from OCC.Core.GeomFill import GeomFill_SimpleBound, GeomFill_ConstrainedFilling
-from OCC.Core.GeomAbs import GeomAbs_C2
+from OCCT.TColgp import TColgp_Array2OfPnt
+from OCCT.GeomAPI import GeomAPI_PointsToBSplineSurface
+from OCCT.GeomFill import GeomFill_SimpleBound, GeomFill_ConstrainedFilling
+from OCCT.GeomAbs import GeomAbs_C2
 from OCC.Display.SimpleGui import init_display
-from OCC.Core.BRepAdaptor import BRepAdaptor_CompCurve, BRepAdaptor_HCompCurve
+from OCCT.BRepAdaptor import BRepAdaptor_CompCurve, BRepAdaptor_HCompCurve
 
 try:
     from PIL import Image

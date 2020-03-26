@@ -17,23 +17,23 @@
 
 import sys
 
-from OCC.Core.gp import gp_Pnt
-from OCC.Core.TopAbs import TopAbs_FACE
-from OCC.Core.TopExp import TopExp_Explorer
-from OCC.Core.TopoDS import TopoDS_Compound, topods_Face
-from OCC.Core.BRepBuilderAPI import BRepBuilderAPI_MakeEdge, BRepBuilderAPI_MakeFace
-from OCC.Core.GeomAPI import GeomAPI_PointsToBSpline
-from OCC.Core.GeomFill import GeomFill_ConstrainedFilling, GeomFill_SimpleBound
-from OCC.Core.GeomAdaptor import GeomAdaptor_HCurve
-from OCC.Core.TColgp import TColgp_Array1OfPnt
-from OCC.Core.BRep import BRep_Builder, BRep_Tool
-from OCC.Core.BRepMesh import BRepMesh_IncrementalMesh
-from OCC.Core.TopLoc import TopLoc_Location
-from OCC.Core.MeshVS import MeshVS_Mesh, MeshVS_BP_Mesh, MeshVS_MeshPrsBuilder
+from OCCT.gp import gp_Pnt
+from OCCT.TopAbs import TopAbs_FACE
+from OCCT.TopExp import TopExp_Explorer
+from OCCT.TopoDS import TopoDS_Compound, topods_Face
+from OCCT.BRepBuilderAPI import BRepBuilderAPI_MakeEdge, BRepBuilderAPI_MakeFace
+from OCCT.GeomAPI import GeomAPI_PointsToBSpline
+from OCCT.GeomFill import GeomFill_ConstrainedFilling, GeomFill_SimpleBound
+from OCCT.GeomAdaptor import GeomAdaptor_HCurve
+from OCCT.TColgp import TColgp_Array1OfPnt
+from OCCT.BRep import BRep_Builder, BRep_Tool
+from OCCT.BRepMesh import BRepMesh_IncrementalMesh
+from OCCT.TopLoc import TopLoc_Location
+from OCCT.MeshVS import MeshVS_Mesh, MeshVS_BP_Mesh, MeshVS_MeshPrsBuilder
 
 # SMESH wrappers
-from OCC.Core.SMESH import SMESH_Gen, SMESH_MeshVSLink
-from OCC.Core.StdMeshers import (StdMeshers_Arithmetic1D, StdMeshers_TrianglePreference,
+from OCCT.SMESH import SMESH_Gen, SMESH_MeshVSLink
+from OCCT.StdMeshers import (StdMeshers_Arithmetic1D, StdMeshers_TrianglePreference,
                             StdMeshers_Regular_1D, StdMeshers_Quadrangle_2D,
                             StdMeshers_MEFISTO_2D)
 

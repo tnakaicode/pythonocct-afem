@@ -36,11 +36,11 @@ import os.path
 import sys
 
 
-from OCC.Core.STEPControl import STEPControl_Reader
-from OCC.Core.IFSelect import IFSelect_RetDone, IFSelect_ItemsByEntity
-from OCC.Core.GeomAbs import GeomAbs_Plane, GeomAbs_Cylinder
-from OCC.Core.TopoDS import topods_Face
-from OCC.Core.BRepAdaptor import BRepAdaptor_Surface
+from OCCT.STEPControl import STEPControl_Reader
+from OCCT.IFSelect import IFSelect_RetDone, IFSelect_ItemsByEntity
+from OCCT.GeomAbs import GeomAbs_Plane, GeomAbs_Cylinder
+from OCCT.TopoDS import topods_Face
+from OCCT.BRepAdaptor import BRepAdaptor_Surface
 from OCC.Display.SimpleGui import init_display
 
 from OCC.Extend.TopologyUtils import TopologyExplorer

@@ -17,11 +17,11 @@
 
 import random
 
-from OCC.Core.BRepPrimAPI import BRepPrimAPI_MakeBox
-from OCC.Core.gp import gp_Pnt, gp_Ax2, gp_Dir, gp_XYZ
-from OCC.Core.BRepBndLib import brepbndlib_AddOBB
-from OCC.Core.BRepBuilderAPI import BRepBuilderAPI_MakeVertex
-from OCC.Core.Bnd import Bnd_OBB
+from OCCT.BRepPrimAPI import BRepPrimAPI_MakeBox
+from OCCT.gp import gp_Pnt, gp_Ax2, gp_Dir, gp_XYZ
+from OCCT.BRepBndLib import brepbndlib_AddOBB
+from OCCT.BRepBuilderAPI import BRepBuilderAPI_MakeVertex
+from OCCT.Bnd import Bnd_OBB
 
 from OCC.Display.SimpleGui import init_display
 

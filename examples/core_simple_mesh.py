@@ -15,16 +15,16 @@
 ##You should have received a copy of the GNU Lesser General Public License
 ##along with pythonOCC.  If not, see <http://www.gnu.org/licenses/>.
 
-from OCC.Core.BRep import BRep_Builder, BRep_Tool
-from OCC.Core.BRepPrimAPI import BRepPrimAPI_MakeBox, BRepPrimAPI_MakeSphere
-from OCC.Core.BRepAlgoAPI import BRepAlgoAPI_Fuse
-from OCC.Core.BRepBuilderAPI import BRepBuilderAPI_MakeEdge
-from OCC.Core.BRepMesh import BRepMesh_IncrementalMesh
-from OCC.Core.TopExp import TopExp_Explorer
-from OCC.Core.TopoDS import TopoDS_Compound, topods_Face
-from OCC.Core.TopAbs import TopAbs_FACE
-from OCC.Core.TopLoc import TopLoc_Location
-from OCC.Core.gp import gp_Pnt
+from OCCT.BRep import BRep_Builder, BRep_Tool
+from OCCT.BRepPrimAPI import BRepPrimAPI_MakeBox, BRepPrimAPI_MakeSphere
+from OCCT.BRepAlgoAPI import BRepAlgoAPI_Fuse
+from OCCT.BRepBuilderAPI import BRepBuilderAPI_MakeEdge
+from OCCT.BRepMesh import BRepMesh_IncrementalMesh
+from OCCT.TopExp import TopExp_Explorer
+from OCCT.TopoDS import TopoDS_Compound, topods_Face
+from OCCT.TopAbs import TopAbs_FACE
+from OCCT.TopLoc import TopLoc_Location
+from OCCT.gp import gp_Pnt
 from OCC.Display.SimpleGui import init_display
 
 display, start_display, add_menu, add_function_to_menu = init_display()

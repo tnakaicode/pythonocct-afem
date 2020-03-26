@@ -20,17 +20,17 @@
 # A sample that shows how to generate the gear geometry according
 # to knowledge
 
-from OCC.Core.BRepFilletAPI import BRepFilletAPI_MakeFillet
-from OCC.Core.BRep import BRep_Tool
-from OCC.Core.BRepPrimAPI import BRepPrimAPI_MakeBox
-from OCC.Core.TopExp import (TopExp_Explorer,
+from OCCT.BRepFilletAPI import BRepFilletAPI_MakeFillet
+from OCCT.BRep import BRep_Tool
+from OCCT.BRepPrimAPI import BRepPrimAPI_MakeBox
+from OCCT.TopExp import (TopExp_Explorer,
                         topexp_MapShapesAndAncestors,
                         topexp_FirstVertex,
                         topexp_LastVertex)
-from OCC.Core.TopAbs import TopAbs_VERTEX, TopAbs_EDGE
-from OCC.Core.TopTools import (TopTools_IndexedDataMapOfShapeListOfShape,
+from OCCT.TopAbs import TopAbs_VERTEX, TopAbs_EDGE
+from OCCT.TopTools import (TopTools_IndexedDataMapOfShapeListOfShape,
                           TopTools_ListIteratorOfListOfShape)
-from OCC.Core.TopoDS import topods_Vertex, topods_Edge
+from OCCT.TopoDS import topods_Vertex, topods_Edge
 
 from OCC.Display.SimpleGui import init_display
 display, start_display, add_menu, add_function_to_menu = init_display()

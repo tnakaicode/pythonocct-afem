@@ -17,24 +17,24 @@
 import sys
 from math import pi
 
-from OCC.Core.BRep import BRep_Tool_Surface
-from OCC.Core.BRepAlgoAPI import BRepAlgoAPI_Section, BRepAlgoAPI_Fuse
-from OCC.Core.BRepBuilderAPI import (BRepBuilderAPI_MakeWire, BRepBuilderAPI_MakeEdge,
+from OCCT.BRep import BRep_Tool_Surface
+from OCCT.BRepAlgoAPI import BRepAlgoAPI_Section, BRepAlgoAPI_Fuse
+from OCCT.BRepBuilderAPI import (BRepBuilderAPI_MakeWire, BRepBuilderAPI_MakeEdge,
 	                                 BRepBuilderAPI_MakeFace, BRepBuilderAPI_GTransform)
-from OCC.Core.BRepFeat import (BRepFeat_MakePrism, BRepFeat_MakeDPrism, BRepFeat_SplitShape,
+from OCCT.BRepFeat import (BRepFeat_MakePrism, BRepFeat_MakeDPrism, BRepFeat_SplitShape,
                                BRepFeat_MakeLinearForm, BRepFeat_MakeRevol)
-from OCC.Core.BRepLib import breplib_BuildCurves3d
-from OCC.Core.BRepOffset import BRepOffset_Skin
-from OCC.Core.BRepOffsetAPI import BRepOffsetAPI_MakeThickSolid, BRepOffsetAPI_MakeOffsetShape
-from OCC.Core.BRepPrimAPI import BRepPrimAPI_MakeBox, BRepPrimAPI_MakePrism
+from OCCT.BRepLib import breplib_BuildCurves3d
+from OCCT.BRepOffset import BRepOffset_Skin
+from OCCT.BRepOffsetAPI import BRepOffsetAPI_MakeThickSolid, BRepOffsetAPI_MakeOffsetShape
+from OCCT.BRepPrimAPI import BRepPrimAPI_MakeBox, BRepPrimAPI_MakePrism
 from OCC.Display.SimpleGui import init_display
-from OCC.Core.GCE2d import GCE2d_MakeLine
-from OCC.Core.Geom import Geom_Plane
-from OCC.Core.Geom2d import Geom2d_Circle
-from OCC.Core.GeomAbs import GeomAbs_Arc
-from OCC.Core.TopTools import TopTools_ListOfShape
-from OCC.Core.TopoDS import TopoDS_Face
-from OCC.Core.gp import (gp_Pnt2d, gp_Circ2d, gp_Ax2d, gp_Dir2d, gp_Pnt, gp_Pln,
+from OCCT.GCE2d import GCE2d_MakeLine
+from OCCT.Geom import Geom_Plane
+from OCCT.Geom2d import Geom2d_Circle
+from OCCT.GeomAbs import GeomAbs_Arc
+from OCCT.TopTools import TopTools_ListOfShape
+from OCCT.TopoDS import TopoDS_Face
+from OCCT.gp import (gp_Pnt2d, gp_Circ2d, gp_Ax2d, gp_Dir2d, gp_Pnt, gp_Pln,
 	                     gp_Vec, gp_OX, gp_Trsf, gp_GTrsf)
 
 from OCC.Extend.TopologyUtils import TopologyExplorer

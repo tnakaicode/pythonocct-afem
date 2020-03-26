@@ -20,8 +20,8 @@ coordinates in the console.
 """
 
 from OCC.Display.SimpleGui import init_display
-from OCC.Core.TopoDS import topods_Vertex
-from OCC.Core.BRep import BRep_Tool
+from OCCT.TopoDS import topods_Vertex
+from OCCT.BRep import BRep_Tool
 from OCC.Extend.DataExchange import read_step_file
 
 def vertex_clicked(shp, *kwargs):

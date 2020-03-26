@@ -16,11 +16,11 @@
 ##along with pythonOCC.  If not, see <http://www.gnu.org/licenses/>.
 
 
-from OCC.Core.AIS import AIS_Shape
-from OCC.Core.BRepPrimAPI import BRepPrimAPI_MakeSphere
-from OCC.Core.Graphic3d import (Graphic3d_ShaderProgram, Graphic3d_TOS_VERTEX,
+from OCCT.AIS import AIS_Shape
+from OCCT.BRepPrimAPI import BRepPrimAPI_MakeSphere
+from OCCT.Graphic3d import (Graphic3d_ShaderProgram, Graphic3d_TOS_VERTEX,
 	                            Graphic3d_TOS_FRAGMENT, Graphic3d_ShaderObject)
-from OCC.Core.TCollection import TCollection_AsciiString
+from OCCT.TCollection import TCollection_AsciiString
 from OCC.Display.SimpleGui import init_display
 
 display, start_display, add_menu, add_function_to_menu = init_display()

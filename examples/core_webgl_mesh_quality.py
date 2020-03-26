@@ -20,8 +20,8 @@
 from __future__ import print_function
 
 from OCC.Display.WebGl import threejs_renderer
-from OCC.Core.BRepPrimAPI import BRepPrimAPI_MakeTorus
-from OCC.Core.gp import gp_Vec
+from OCCT.BRepPrimAPI import BRepPrimAPI_MakeTorus
+from OCCT.gp import gp_Vec
 
 from OCC.Extend.ShapeFactory import translate_shp
 

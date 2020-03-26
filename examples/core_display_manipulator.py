@@ -33,8 +33,8 @@ pythonocc world and run all the other examples.
 """
 
 from OCC.Display.SimpleGui import init_display
-from OCC.Core.BRepPrimAPI import BRepPrimAPI_MakeBox
-from OCC.Core.AIS import AIS_Manipulator
+from OCCT.BRepPrimAPI import BRepPrimAPI_MakeBox
+from OCCT.AIS import AIS_Manipulator
 
 display, start_display, add_menu, add_function_to_menu = init_display()
 my_box = BRepPrimAPI_MakeBox(10., 20., 30.).Shape()

@@ -18,16 +18,16 @@
 from __future__ import print_function
 
 
-from OCC.Core.TCollection import TCollection_ExtendedString
+from OCCT.TCollection import TCollection_ExtendedString
 
-from OCC.Core.TDocStd import TDocStd_Document
-from OCC.Core.XCAFDoc import (XCAFDoc_DocumentTool_ShapeTool,
+from OCCT.TDocStd import TDocStd_Document
+from OCCT.XCAFDoc import (XCAFDoc_DocumentTool_ShapeTool,
                               XCAFDoc_DocumentTool_ColorTool,
                               XCAFDoc_DocumentTool_LayerTool,
                               XCAFDoc_DocumentTool_MaterialTool)
-from OCC.Core.STEPCAFControl import STEPCAFControl_Reader
-from OCC.Core.IFSelect import IFSelect_RetDone
-from OCC.Core.TDF import TDF_LabelSequence
+from OCCT.STEPCAFControl import STEPCAFControl_Reader
+from OCCT.IFSelect import IFSelect_RetDone
+from OCCT.TDF import TDF_LabelSequence
 
 from OCC.Display.SimpleGui import init_display
 

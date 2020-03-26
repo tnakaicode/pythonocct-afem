@@ -21,10 +21,10 @@ import os
 import random
 import struct
 
-from OCC.Core.Graphic3d import Graphic3d_ArrayOfPoints
-from OCC.Core.AIS import AIS_PointCloud
-from OCC.Core.Quantity import Quantity_Color, Quantity_TOC_RGB
-from OCC.Core.gp import gp_Pnt
+from OCCT.Graphic3d import Graphic3d_ArrayOfPoints
+from OCCT.AIS import AIS_PointCloud
+from OCCT.Quantity import Quantity_Color, Quantity_TOC_RGB
+from OCCT.gp import gp_Pnt
 
 from OCC.Display.SimpleGui import init_display
 display, start_display, add_menu, add_function_to_menu = init_display()

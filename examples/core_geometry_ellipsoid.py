@@ -15,10 +15,10 @@
 ##You should have received a copy of the GNU Lesser General Public License
 ##along with pythonOCC.  If not, see <http://www.gnu.org/licenses/>.
 
-from OCC.Core.gp import gp_Pnt, gp_XYZ, gp_Mat, gp_GTrsf
-from OCC.Core.BRepPrimAPI import BRepPrimAPI_MakeSphere, BRepPrimAPI_MakeBox
-from OCC.Core.BRepBuilderAPI import BRepBuilderAPI_GTransform
-from OCC.Core.BRepAlgoAPI import BRepAlgoAPI_Common
+from OCCT.gp import gp_Pnt, gp_XYZ, gp_Mat, gp_GTrsf
+from OCCT.BRepPrimAPI import BRepPrimAPI_MakeSphere, BRepPrimAPI_MakeBox
+from OCCT.BRepBuilderAPI import BRepBuilderAPI_GTransform
+from OCCT.BRepAlgoAPI import BRepAlgoAPI_Common
 
 from OCC.Display.SimpleGui import init_display
 

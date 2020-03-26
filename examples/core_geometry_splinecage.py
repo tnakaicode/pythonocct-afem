@@ -22,11 +22,11 @@
 
 import random
 
-from OCC.Core.BRepAdaptor import BRepAdaptor_Curve
-from OCC.Core.GCPnts import GCPnts_AbscissaPoint, GCPnts_UniformAbscissa
-from OCC.Core.GeomAbs import GeomAbs_G1
-from OCC.Core.BRepOffsetAPI import BRepOffsetAPI_MakeFilling
-from OCC.Core.TopAbs import TopAbs_FACE, TopAbs_EDGE
+from OCCT.BRepAdaptor import BRepAdaptor_Curve
+from OCCT.GCPnts import GCPnts_AbscissaPoint, GCPnts_UniformAbscissa
+from OCCT.GeomAbs import GeomAbs_G1
+from OCCT.BRepOffsetAPI import BRepOffsetAPI_MakeFilling
+from OCCT.TopAbs import TopAbs_FACE, TopAbs_EDGE
 
 from OCC.Display.SimpleGui import init_display
 from OCC.Display.OCCViewer import rgb_color

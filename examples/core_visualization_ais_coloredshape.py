@@ -17,8 +17,8 @@ from __future__ import print_function
 
 from random import random
 
-from OCC.Core.AIS import AIS_ColoredShape
-from OCC.Core.BRepPrimAPI import BRepPrimAPI_MakeBox
+from OCCT.AIS import AIS_ColoredShape
+from OCCT.BRepPrimAPI import BRepPrimAPI_MakeBox
 from OCC.Display.OCCViewer import rgb_color
 from OCC.Display.SimpleGui import init_display
 from OCC.Extend.TopologyUtils import TopologyExplorer

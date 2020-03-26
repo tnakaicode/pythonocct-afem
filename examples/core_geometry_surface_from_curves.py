@@ -19,13 +19,13 @@
 
 from __future__ import print_function
 
-from OCC.Core.gp import gp_Pnt, gp_Vec
-from OCC.Core.GeomFill import (GeomFill_BSplineCurves,
+from OCCT.gp import gp_Pnt, gp_Vec
+from OCCT.GeomFill import (GeomFill_BSplineCurves,
                                GeomFill_StretchStyle,
                                GeomFill_CoonsStyle,
                                GeomFill_CurvedStyle)
-from OCC.Core.GeomAPI import GeomAPI_PointsToBSpline
-from OCC.Core.Geom import Geom_BSplineCurve
+from OCCT.GeomAPI import GeomAPI_PointsToBSpline
+from OCCT.Geom import Geom_BSplineCurve
 
 from OCC.Display.SimpleGui import init_display
 

@@ -17,10 +17,10 @@
 import sys
 
 from OCC.Display.SimpleGui import init_display
-from OCC.Core.Graphic3d import Graphic3d_RenderingParams
-from OCC.Core.BRepTools import breptools_Read
-from OCC.Core.TopoDS import TopoDS_Shape
-from OCC.Core.BRep import BRep_Builder
+from OCCT.Graphic3d import Graphic3d_RenderingParams
+from OCCT.BRepTools import breptools_Read
+from OCCT.TopoDS import TopoDS_Shape
+from OCCT.BRep import BRep_Builder
 
 display, start_display, add_menu, add_function_to_menu = init_display()
 

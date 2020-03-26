@@ -15,9 +15,9 @@
 ##You should have received a copy of the GNU Lesser General Public License
 ##along with pythonOCC.  If not, see <http://www.gnu.org/licenses/>.
 
-from OCC.Core.gp import gp_Pnt, gp_Pln
-from OCC.Core.ChFi2d import ChFi2d_AnaFilletAlgo
-from OCC.Core.BRepBuilderAPI import BRepBuilderAPI_MakeEdge
+from OCCT.gp import gp_Pnt, gp_Pln
+from OCCT.ChFi2d import ChFi2d_AnaFilletAlgo
+from OCCT.BRepBuilderAPI import BRepBuilderAPI_MakeEdge
 
 from OCC.Extend.ShapeFactory import make_wire
 

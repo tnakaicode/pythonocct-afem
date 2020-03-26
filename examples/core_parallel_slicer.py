@@ -21,12 +21,12 @@ import time
 import sys
 import multiprocessing
 
-from OCC.Core.BRep import BRep_Builder
-from OCC.Core.BRepTools import breptools_Read
-from OCC.Core.TopoDS import TopoDS_Shape
-from OCC.Core.gp import gp_Pln, gp_Dir, gp_Pnt
-from OCC.Core.BRepAlgoAPI import BRepAlgoAPI_Section
-from OCC.Core.BRepBuilderAPI import BRepBuilderAPI_MakeFace
+from OCCT.BRep import BRep_Builder
+from OCCT.BRepTools import breptools_Read
+from OCCT.TopoDS import TopoDS_Shape
+from OCCT.gp import gp_Pln, gp_Dir, gp_Pnt
+from OCCT.BRepAlgoAPI import BRepAlgoAPI_Section
+from OCCT.BRepBuilderAPI import BRepBuilderAPI_MakeFace
 
 from OCC.Display.SimpleGui import init_display
 

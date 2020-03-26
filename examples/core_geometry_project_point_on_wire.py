@@ -21,15 +21,15 @@ from __future__ import print_function
 
 import os
 
-from OCC.Core.BRep import BRep_Builder
-from OCC.Core.BRepTools import breptools
-from OCC.Core.BRepAdaptor import BRepAdaptor_CompCurve, BRepAdaptor_HCompCurve
-from OCC.Core.ShapeAnalysis import ShapeAnalysis_Curve
-from OCC.Core.TopoDS import TopoDS_Shape, topods
-from OCC.Core.gp import gp_Pnt
-from OCC.Core.Approx import Approx_Curve3d
-from OCC.Core.GeomAbs import GeomAbs_C2
-from OCC.Core.GeomAPI import GeomAPI_ProjectPointOnCurve
+from OCCT.BRep import BRep_Builder
+from OCCT.BRepTools import breptools
+from OCCT.BRepAdaptor import BRepAdaptor_CompCurve, BRepAdaptor_HCompCurve
+from OCCT.ShapeAnalysis import ShapeAnalysis_Curve
+from OCCT.TopoDS import TopoDS_Shape, topods
+from OCCT.gp import gp_Pnt
+from OCCT.Approx import Approx_Curve3d
+from OCCT.GeomAbs import GeomAbs_C2
+from OCCT.GeomAPI import GeomAPI_ProjectPointOnCurve
 
 # Read wire
 wire_filename = os.path.join('..', 'assets', 'models', 'wire.brep')

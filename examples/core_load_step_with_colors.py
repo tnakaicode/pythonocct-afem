@@ -16,7 +16,7 @@
 ##along with pythonOCC.  If not, see <http://www.gnu.org/licenses/>.
 
 from OCC.Extend.DataExchange import read_step_file_with_names_colors
-from OCC.Core.Quantity import Quantity_Color, Quantity_TOC_RGB
+from OCCT.Quantity import Quantity_Color, Quantity_TOC_RGB
 from OCC.Display.SimpleGui import init_display
 
 filename = '../assets/models/as1-oc-214.stp'

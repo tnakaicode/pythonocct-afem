@@ -1,14 +1,14 @@
 from __future__ import print_function
 import sys
 
-from OCC.Core.BRepGProp import brepgprop_LinearProperties
-from OCC.Core.BRepPrimAPI import BRepPrimAPI_MakeBox, BRepPrimAPI_MakeSphere
+from OCCT.BRepGProp import brepgprop_LinearProperties
+from OCCT.BRepPrimAPI import BRepPrimAPI_MakeBox, BRepPrimAPI_MakeSphere
 from OCC.Display.SimpleGui import init_display
 from OCC.Display.backend import get_qt_modules
-from OCC.Core.GProp import GProp_GProps
-from OCC.Core.TopAbs import TopAbs_SOLID, TopAbs_EDGE, TopAbs_FACE
-from OCC.Core.TopLoc import TopLoc_Location
-from OCC.Core.gp import gp_Trsf, gp_Vec
+from OCCT.GProp import GProp_GProps
+from OCCT.TopAbs import TopAbs_SOLID, TopAbs_EDGE, TopAbs_FACE
+from OCCT.TopLoc import TopLoc_Location
+from OCCT.gp import gp_Trsf, gp_Vec
 
 display, start_display, add_menu, add_function_to_menu = init_display("qt-pyqt5")
 QtCore, QtGui, QtWidgets, QtOpenGL = get_qt_modules()

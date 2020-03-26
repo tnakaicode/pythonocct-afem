@@ -16,15 +16,15 @@
 ##along with pythonOCC.  If not, see <http://www.gnu.org/licenses/>.
 
 import math
-from OCC.Core.gp import gp_Dir, gp_Pln, gp_Ax3, gp_XOY
-from OCC.Core.BRepPrimAPI import BRepPrimAPI_MakeBox
-from OCC.Core.BRepOffsetAPI import BRepOffsetAPI_DraftAngle
-from OCC.Core.Precision import precision_Angular
-from OCC.Core.BRep import BRep_Tool_Surface
-from OCC.Core.TopExp import TopExp_Explorer
-from OCC.Core.TopAbs import TopAbs_FACE
-from OCC.Core.Geom import Geom_Plane
-from OCC.Core.TopoDS import topods_Face
+from OCCT.gp import gp_Dir, gp_Pln, gp_Ax3, gp_XOY
+from OCCT.BRepPrimAPI import BRepPrimAPI_MakeBox
+from OCCT.BRepOffsetAPI import BRepOffsetAPI_DraftAngle
+from OCCT.Precision import precision_Angular
+from OCCT.BRep import BRep_Tool_Surface
+from OCCT.TopExp import TopExp_Explorer
+from OCCT.TopAbs import TopAbs_FACE
+from OCCT.Geom import Geom_Plane
+from OCCT.TopoDS import topods_Face
 
 from OCC.Display.SimpleGui import init_display
 display, start_display, add_menu, add_function_to_menu = init_display()
