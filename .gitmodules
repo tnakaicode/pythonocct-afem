@@ -1,0 +1,3 @@
+[submodule "pythonocct"]
+	path = pythonocct
+	url = https://github.com/trelau/pyOCCT.git
