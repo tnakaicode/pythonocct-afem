@@ -19,6 +19,8 @@
 # Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301 USA
 from setuptools import setup
 
+# pip install wxPython
+
 setup(
     name='afem',
     version='1.1.0',
