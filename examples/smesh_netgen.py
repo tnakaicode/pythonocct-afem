@@ -49,5 +49,6 @@ assert done
 print('done.')
 
 v = BasicViewer()
-v.add(mesh)
+v.display_shape(shape)
+v.display_mesh(mesh)
 v.start()

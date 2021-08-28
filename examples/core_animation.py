@@ -25,7 +25,14 @@ from math import pi
 from OCCT.gp import gp_Ax1, gp_Pnt, gp_Dir, gp_Trsf
 from OCCT.BRepPrimAPI import BRepPrimAPI_MakeBox
 from OCCT.TopLoc import TopLoc_Location
-from OCC.Display.SimpleGui import init_display
+
+from OCCT.Exchange import ExchangeBasic
+try:
+    from OCCT.Visualization.WxViewer import ShapeViewerWx
+    from OCCT.Visualization.QtViewer import ShapeViewerQt
+except:
+    from OCCT.Visualization.WxViewer import ViewerWx as ShapeViewerWx
+    from OCCT.Visualization.QtViewer import ViewerQt as ShapeViewerQt
 
 display, start_display, add_menu, add_function_to_menu = init_display()
 
