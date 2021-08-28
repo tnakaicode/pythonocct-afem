@@ -19,10 +19,15 @@
 from OCCT.Graphic3d import Graphic3d_NOM_ALUMINIUM
 
 from OCCT.Exchange import ExchangeBasic
-from OCCT.Visualization import BasicViewer
+try:
+    from OCCT.Visualization.WxViewer import ShapeViewerWx
+    from OCCT.Visualization.QtViewer import ShapeViewerQt
+except:
+    from OCCT.Visualization.WxViewer import ViewerWx as ShapeViewerWx
+    from OCCT.Visualization.QtViewer import ViewerQt as ShapeViewerQt
 
 shape = ExchangeBasic.read_step('./models/compressor.step')
 
-v = BasicViewer()
+v = ShapeViewerQt()
 v.display_shape(shape, rgb=(0.5, 0.5, 0.5), material=Graphic3d_NOM_ALUMINIUM)
 v.start()

@@ -18,7 +18,7 @@
 from OCCT.BRepPrimAPI import BRepPrimAPI_MakeBox
 from OCCT.SMESH import SMESH_Gen
 from OCCT.StdMeshers import (StdMeshers_Arithmetic1D, StdMeshers_Regular_1D,
-                            StdMeshers_TrianglePreference, StdMeshers_MEFISTO_2D,
+                            StdMeshers_MEFISTO_2D,
                             StdMeshers_QuadranglePreference, StdMeshers_Quadrangle_2D)
 
 #Create the shape to mesh

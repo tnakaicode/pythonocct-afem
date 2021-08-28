@@ -42,6 +42,7 @@ OCCT/BRepMesh.pyd
 OCCT/BRepMeshData.pyd
 OCCT/BRepOffset.pyd
 OCCT/BRepOffsetAPI.pyd
+OCCT/BRepPreviewAPI.pyd
 OCCT/BRepPrim.pyd
 OCCT/BRepPrimAPI.pyd
 OCCT/BRepProj.pyd
@@ -53,8 +54,6 @@ OCCT/BRepTopAdaptor.pyd
 OCCT/BSplCLib.pyd
 OCCT/BSplSLib.pyd
 OCCT/BVH.pyd
-OCCT/BaseTraceCollector.pyd
-OCCT/BasicsGenericDestructor.pyd
 OCCT/BiTgte.pyd
 OCCT/BinDrivers.pyd
 OCCT/BinLDrivers.pyd
@@ -85,11 +84,6 @@ OCCT/ChFiKPart.pyd
 OCCT/Contap.pyd
 OCCT/Convert.pyd
 OCCT/Draft.pyd
-OCCT/Driver.pyd
-OCCT/DriverDAT.pyd
-OCCT/DriverGMF.pyd
-OCCT/DriverSTL.pyd
-OCCT/DriverUNV.pyd
 OCCT/DsgPrs.pyd
 OCCT/ElCLib.pyd
 OCCT/ElSLib.pyd
@@ -161,6 +155,10 @@ OCCT/IGESSolid.pyd
 OCCT/IGESToBRep.pyd
 OCCT/IMeshData.pyd
 OCCT/IMeshTools.pyd
+OCCT/IVtk.pyd
+OCCT/IVtkOCC.pyd
+OCCT/IVtkTools.pyd
+OCCT/IVtkVTK.pyd
 OCCT/Image.pyd
 OCCT/IntAna.pyd
 OCCT/IntAna2d.pyd
@@ -188,7 +186,6 @@ OCCT/LProp3d.pyd
 OCCT/Law.pyd
 OCCT/LocOpe.pyd
 OCCT/LocalAnalysis.pyd
-OCCT/LocalTraceBufferPool.pyd
 OCCT/MAT.pyd
 OCCT/MAT2d.pyd
 OCCT/MMgt.pyd
@@ -197,7 +194,6 @@ OCCT/MeshVS.pyd
 OCCT/Message.pyd
 OCCT/MoniTool.pyd
 OCCT/NCollection.pyd
-OCCT/NETGENPlugin.pyd
 OCCT/NLPlate.pyd
 OCCT/OSD.pyd
 OCCT/OpenGl.pyd
@@ -209,6 +205,7 @@ OCCT/Poly.pyd
 OCCT/Precision.pyd
 OCCT/ProjLib.pyd
 OCCT/Prs3d.pyd
+OCCT/PrsDim.pyd
 OCCT/PrsMgr.pyd
 OCCT/Quantity.pyd
 OCCT/RWGltf.pyd
@@ -228,10 +225,6 @@ OCCT/RWStepShape.pyd
 OCCT/RWStepVisual.pyd
 OCCT/RWStl.pyd
 OCCT/Resource.pyd
-OCCT/SMDS.pyd
-OCCT/SMDSAbs.pyd
-OCCT/SMESH.pyd
-OCCT/SMESHDS.pyd
 OCCT/STEPCAFControl.pyd
 OCCT/STEPConstruct.pyd
 OCCT/STEPControl.pyd
@@ -256,7 +249,6 @@ OCCT/StdDrivers.pyd
 OCCT/StdFail.pyd
 OCCT/StdLDrivers.pyd
 OCCT/StdLPersistent.pyd
-OCCT/StdMeshers.pyd
 OCCT/StdObjMgt.pyd
 OCCT/StdObject.pyd
 OCCT/StdPersistent.pyd
@@ -285,7 +277,6 @@ OCCT/Storage.pyd
 OCCT/Sweep.pyd
 OCCT/TColGeom.pyd
 OCCT/TColGeom2d.pyd
-OCCT/TColQuantity.pyd
 OCCT/TColStd.pyd
 OCCT/TColgp.pyd
 OCCT/TCollection.pyd
@@ -318,7 +309,6 @@ OCCT/UTL.pyd
 OCCT/Units.pyd
 OCCT/UnitsAPI.pyd
 OCCT/UnitsMethods.pyd
-OCCT/Utils.pyd
 OCCT/V3d.pyd
 OCCT/Vrml.pyd
 OCCT/VrmlAPI.pyd
@@ -366,7 +356,8 @@ test/test_BRepPrimAPI.py
 test/test_Font.py
 test/test_Geom.py
 test/test_Graphic3d.py
-test/test_NETGENPlugin.py
+test/test_InteractiveObject.py
+test/test_OpenGl.py
 test/test_Select3d.py
 test/test_ShapeAnalysis.py
 test/test_Standard.py

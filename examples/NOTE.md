@@ -19,9 +19,11 @@ title: OpenCASCADE
 
 ## OCCT
 
+- <https://anaconda.org/trelau>
 - pyocct
   - netgen4smesh
   - smesh4pyocct
+  - smesh
 - afem
 
 ```bash
