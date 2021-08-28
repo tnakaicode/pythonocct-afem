@@ -46,9 +46,9 @@ from OCC.Core.BRep import BRep_Builder
 display, start_display, add_menu, add_function_to_menu = init_display()
 
 
-from OCCUtils.Construct import (make_closed_polygon, make_n_sided,
+from OCCTUtils.Construct import (make_closed_polygon, make_n_sided,
                                 make_vertex, make_face)
-from OCCUtils.Topology import WireExplorer, Topo
+from OCCTUtils.Topology import WireExplorer, Topo
 
 try:
     from scipy import arange

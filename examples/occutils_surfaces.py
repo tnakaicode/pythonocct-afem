@@ -23,8 +23,8 @@ from itertools import chain
 from OCC.Display.SimpleGui import init_display
 
 sys.path.append('..')
-from OCCUtils.Common import points_to_bspline
-from OCCUtils.Construct import gp_Pnt, make_edge, make_n_sided, make_vertex
+from OCCTUtils.Common import points_to_bspline
+from OCCTUtils.Construct import gp_Pnt, make_edge, make_n_sided, make_vertex
 
 display, start_display, add_menu, add_function_to_menu = init_display()
 
