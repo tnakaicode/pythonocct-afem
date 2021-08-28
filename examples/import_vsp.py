@@ -26,8 +26,8 @@ from OCCT.Visualization import BasicViewer
 # Select version of OpenVSP used to export the model. Versions greater than
 # 3.5.0 seem to decrease OpenCASCADE performance. Surface parameterization was
 # changed in OpenVSP, but not entirely sure that is the root cause.
-fn = './models/F-16_OpenVSP3.5.0.stp'
-# fn = './models/F-16_OpenVSP3.15.0.stp'
+fn = '../models/F-16_OpenVSP3.5.0.stp'
+# fn = '../models/F-16_OpenVSP3.15.0.stp'
 vsp = ImportVSP(fn)
 
 v = BasicViewer()

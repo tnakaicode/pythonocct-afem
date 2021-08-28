@@ -30,10 +30,10 @@ except:
     from OCCT.Visualization.QtViewer import ViewerQt as ShapeViewerQt
 
 
-fn = './models/wing_assy.brep'
+fn = '../models/wing_assy.brep'
 wing_assy = ExchangeBasic.read_brep(fn)
 
-fn = './models/fuse_assy.brep'
+fn = '../models/fuse_assy.brep'
 fuse_assy = ExchangeBasic.read_brep(fn)
 
 bop = BRepAlgoAPI_Fuse()

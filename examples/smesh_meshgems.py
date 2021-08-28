@@ -39,10 +39,10 @@ except:
     from OCCT.Visualization.WxViewer import ViewerWx as ShapeViewerWx
     from OCCT.Visualization.QtViewer import ViewerQt as ShapeViewerQt
 
-# fn = './models/lhs_wing.brep'
-# fn = './models/wingbox.brep'
-# fn = './models/fuselage_structure.brep'
-fn = './models/wing_body.brep'
+# fn = '../models/lhs_wing.brep'
+# fn = '../models/wingbox.brep'
+# fn = '../models/fuselage_structure.brep'
+fn = '../models/wing_body.brep'
 
 shape = ExchangeBasic.read_brep(fn)
 

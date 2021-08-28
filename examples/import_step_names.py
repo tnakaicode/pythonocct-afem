@@ -25,7 +25,7 @@ from OCCT.Visualization import BasicViewer
 # Read the file and get the shape
 reader = STEPControl_Reader()
 tr = reader.WS().TransferReader()
-reader.ReadFile('./models/shape_names.step')
+reader.ReadFile('../models/shape_names.step')
 reader.TransferRoots()
 shape = reader.OneShape()
 

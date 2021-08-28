@@ -23,7 +23,7 @@ from SMESH.SMESH import SMESH_Gen
 
 from SMESH.Visualization.MeshViewerWx import MeshViewerWx
 
-fn = './models/shape_names.step'
+fn = '../models/shape_names.step'
 shape = ExchangeBasic.read_step(fn)
 
 v = MeshViewerWx()

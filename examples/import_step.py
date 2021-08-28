@@ -26,7 +26,7 @@ except:
     from OCCT.Visualization.WxViewer import ViewerWx as ShapeViewerWx
     from OCCT.Visualization.QtViewer import ViewerQt as ShapeViewerQt
 
-shape = ExchangeBasic.read_step('./models/compressor.step')
+shape = ExchangeBasic.read_step('../models/compressor.step')
 
 v = ShapeViewerQt()
 v.display_shape(shape, rgb=(0.5, 0.5, 0.5), material=Graphic3d_NOM_ALUMINIUM)

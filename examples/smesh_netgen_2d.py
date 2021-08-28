@@ -29,7 +29,7 @@ except:
 from OCCT.SMESH import SMESH_Gen, SMESH_Mesh
 #from OCCT.SMESH import MeshViewerWx
 
-fn = './models/wingbox.brep'
+fn = '../models/wingbox.brep'
 shape = ExchangeBasic.read_brep(fn)
 
 v = ShapeViewerQt()

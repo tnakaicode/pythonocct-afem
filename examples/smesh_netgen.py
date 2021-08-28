@@ -23,7 +23,7 @@ from OCCT.SMESH import SMESH_Gen, SMESH_Mesh
 from OCCT.Exchange import ExchangeBasic
 from OCCT.Visualization.QtViewer import ViewerQt as BasicViewer
 
-fn = './models/wing_body.brep'
+fn = '../models/wing_body.brep'
 shape = ExchangeBasic.read_brep(fn)
 
 gen = SMESH_Gen()

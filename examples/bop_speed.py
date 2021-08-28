@@ -32,8 +32,8 @@ except:
     from OCCT.Visualization.WxViewer import ViewerWx as ShapeViewerWx
     from OCCT.Visualization.QtViewer import ViewerQt as ShapeViewerQt
 
-cheese = ExchangeBasic.read_step('./models/cheese.stp')
-planes = ExchangeBasic.read_step('./models/planes.stp')
+cheese = ExchangeBasic.read_step('../models/cheese.stp')
+planes = ExchangeBasic.read_step('../models/planes.stp')
 
 v = ShapeViewerQt()
 v.display_shape(cheese)
