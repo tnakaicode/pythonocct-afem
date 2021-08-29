@@ -15,21 +15,21 @@
 ##You should have received a copy of the GNU Lesser General Public License
 ##along with pythonOCC.  If not, see <http://www.gnu.org/licenses/>
 
-from OCC.Core.BRep import BRep_Tool_Surface, BRep_Tool
-from OCC.Core.BRepTopAdaptor import BRepTopAdaptor_FClass2d
-from OCC.Core.Geom import Geom_Curve
-from OCC.Core.GeomAPI import GeomAPI_ProjectPointOnSurf
-from OCC.Core.GeomLib import GeomLib_IsPlanarSurface
-from OCC.Core.TopAbs import TopAbs_IN
-from OCC.Core.TopExp import topexp
-from OCC.Core.TopoDS import TopoDS_Vertex, TopoDS_Face, TopoDS_Edge
-from OCC.Core.GeomLProp import GeomLProp_SLProps
-from OCC.Core.BRepTools import breptools_UVBounds
-from OCC.Core.BRepAdaptor import BRepAdaptor_Surface, BRepAdaptor_HSurface
-from OCC.Core.ShapeAnalysis import ShapeAnalysis_Surface
-from OCC.Core.GeomProjLib import geomprojlib
-from OCC.Core.Adaptor3d import Adaptor3d_IsoCurve
-from OCC.Core.gp import gp_Pnt2d, gp_Dir
+from OCCT.BRep import BRep_Tool
+from OCCT.BRepTopAdaptor import BRepTopAdaptor_FClass2d
+from OCCT.Geom import Geom_Curve
+from OCCT.GeomAPI import GeomAPI_ProjectPointOnSurf
+from OCCT.GeomLib import GeomLib_IsPlanarSurface
+from OCCT.TopAbs import TopAbs_IN
+from OCCT.TopExp import TopExp
+from OCCT.TopoDS import TopoDS_Vertex, TopoDS_Face, TopoDS_Edge
+from OCCT.GeomLProp import GeomLProp_SLProps
+#from OCCT.BRepTools import BrepTools_UVBounds
+from OCCT.BRepAdaptor import BRepAdaptor_Surface, BRepAdaptor_HSurface
+from OCCT.ShapeAnalysis import ShapeAnalysis_Surface
+#from OCCT.GeomProjLib import geomprojlib
+from OCCT.Adaptor3d import Adaptor3d_IsoCurve
+from OCCT.gp import gp_Pnt2d, gp_Dir
 
 from OCCTUtils.base import BaseObject
 from OCCTUtils.edge import Edge
@@ -135,7 +135,7 @@ class Face(TopoDS_Face, BaseObject):
     def __init__(self, face):
         '''
         '''
-        assert isinstance(face, TopoDS_Face), 'need a TopoDS_Face, got a %s' % face.__class__
+        #assert isinstance(face, TopoDS_Face), 'need a TopoDS_Face, got a %s' % face.__class__
         assert not face.IsNull()
         super(Face, self).__init__()
         BaseObject.__init__(self, 'face')

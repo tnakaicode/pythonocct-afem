@@ -1,46 +1,46 @@
 #!/usr/bin/env python
 
-##Copyright 2008-2015 Jelle Feringa (jelleferinga@gmail.com)
+# Copyright 2008-2015 Jelle Feringa (jelleferinga@gmail.com)
 ##
-##This file is part of pythonOCC.
+# This file is part of pythonOCC.
 ##
-##pythonOCC is free software: you can redistribute it and/or modify
-##it under the terms of the GNU Lesser General Public License as published by
-##the Free Software Foundation, either version 3 of the License, or
-##(at your option) any later version.
+# pythonOCC is free software: you can redistribute it and/or modify
+# it under the terms of the GNU Lesser General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# (at your option) any later version.
 ##
-##pythonOCC is distributed in the hope that it will be useful,
-##but WITHOUT ANY WARRANTY; without even the implied warranty of
-##MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-##GNU Lesser General Public License for more details.
+# pythonOCC is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU Lesser General Public License for more details.
 ##
-##You should have received a copy of the GNU Lesser General Public License
-##along with pythonOCC.  If not, see <http://www.gnu.org/licenses/>.
+# You should have received a copy of the GNU Lesser General Public License
+# along with pythonOCC.  If not, see <http://www.gnu.org/licenses/>.
 
 from __future__ import print_function
 
 __all__ = ['Topo', 'WireExplorer', 'dumpTopology']
 
-from OCC.Core.BRep import BRep_Tool
+from OCCT.BRep import BRep_Tool
 
-from OCC.Core.BRepTools import BRepTools_WireExplorer
-from OCC.Core.TopAbs import (TopAbs_VERTEX, TopAbs_EDGE, TopAbs_FACE, TopAbs_WIRE,
-                        TopAbs_SHELL, TopAbs_SOLID, TopAbs_COMPOUND,
-                        TopAbs_COMPSOLID)
-from OCC.Core.TopExp import TopExp_Explorer, topexp_MapShapesAndAncestors
-from OCC.Core.TopTools import (TopTools_ListOfShape,
-                          TopTools_ListIteratorOfListOfShape,
-                          TopTools_IndexedDataMapOfShapeListOfShape)
-from OCC.Core.TopoDS import (topods, TopoDS_Wire, TopoDS_Vertex, TopoDS_Edge,
-                        TopoDS_Face, TopoDS_Shell, TopoDS_Solid,
-                        TopoDS_Compound, TopoDS_CompSolid, topods_Edge,
-                        topods_Vertex, TopoDS_Iterator)
+from OCCT.BRepTools import BRepTools_WireExplorer
+from OCCT.TopAbs import (TopAbs_VERTEX, TopAbs_EDGE, TopAbs_FACE, TopAbs_WIRE,
+                         TopAbs_SHELL, TopAbs_SOLID, TopAbs_COMPOUND,
+                         TopAbs_COMPSOLID)
+from OCCT.TopExp import TopExp_Explorer
+from OCCT.TopTools import (TopTools_ListOfShape,
+                           TopTools_ListIteratorOfListOfShape,
+                           TopTools_IndexedDataMapOfShapeListOfShape)
+from OCCT.TopoDS import (TopoDS_Wire, TopoDS_Vertex, TopoDS_Edge,
+                         TopoDS_Face, TopoDS_Shell, TopoDS_Solid,
+                         TopoDS_Compound, TopoDS_CompSolid, TopoDS_Iterator)
 
 
 class WireExplorer(object):
     '''
     Wire traversal
     '''
+
     def __init__(self, wire):
         assert isinstance(wire, TopoDS_Wire), 'not a TopoDS_Wire'
         self.wire = wire
@@ -152,7 +152,8 @@ class Topo(object):
                      TopAbs_COMPOUND: TopoDS_Compound,
                      TopAbs_COMPSOLID: TopoDS_CompSolid}
 
-        assert topologyType in topoTypes.keys(), '%s not one of %s' % (topologyType, topoTypes.keys())
+        assert topologyType in topoTypes.keys(), '%s not one of %s' % (
+            topologyType, topoTypes.keys())
         self.topExp = TopExp_Explorer()
         # use self.myShape if nothing is specified
         if topologicalEntity is None and topologyTypeToAvoid is None:
@@ -315,7 +316,8 @@ class Topo(object):
         topology_iterator = TopTools_ListIteratorOfListOfShape(results)
         while topology_iterator.More():
 
-            topo_entity = self.topoFactory[topoTypeB](topology_iterator.Value())
+            topo_entity = self.topoFactory[topoTypeB](
+                topology_iterator.Value())
 
             # return the entity if not in set
             # to assure we're not returning entities several times
@@ -490,7 +492,8 @@ def dumpTopology(shape, level=0):
     s = shape.ShapeType()
     if s == TopAbs_VERTEX:
         pnt = brt.Pnt(topods_Vertex(shape))
-        print(".." * level  + "<Vertex %i: %s %s %s>" % (hash(shape), pnt.X(), pnt.Y(), pnt.Z()))
+        print(".." * level + "<Vertex %i: %s %s %s>" %
+              (hash(shape), pnt.X(), pnt.Y(), pnt.Z()))
     else:
         print(".." * level, end="")
         print(shapeTypeString(shape))

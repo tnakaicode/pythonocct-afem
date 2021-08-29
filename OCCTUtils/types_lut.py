@@ -1,41 +1,45 @@
-##Copyright 2008-2015 Jelle Feringa (jelleferinga@gmail.com)
+# Copyright 2008-2015 Jelle Feringa (jelleferinga@gmail.com)
 ##
-##This file is part of pythonOCC.
+# This file is part of pythonOCC.
 ##
-##pythonOCC is free software: you can redistribute it and/or modify
-##it under the terms of the GNU Lesser General Public License as published by
-##the Free Software Foundation, either version 3 of the License, or
-##(at your option) any later version.
+# pythonOCC is free software: you can redistribute it and/or modify
+# it under the terms of the GNU Lesser General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# (at your option) any later version.
 ##
-##pythonOCC is distributed in the hope that it will be useful,
-##but WITHOUT ANY WARRANTY; without even the implied warranty of
-##MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-##GNU Lesser General Public License for more details.
+# pythonOCC is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU Lesser General Public License for more details.
 ##
-##You should have received a copy of the GNU Lesser General Public License
-##along with pythonOCC.  If not, see <http://www.gnu.org/licenses/>
+# You should have received a copy of the GNU Lesser General Public License
+# along with pythonOCC.  If not, see <http://www.gnu.org/licenses/>
 
-from OCC.Core.BRepCheck import *
-from OCC.Core.GeomAbs import *
-from OCC.Core.TopoDS import topods, TopoDS_Shape
-from OCC.Core.BRep import BRep_Tool_Surface
-from OCC.Core.TopAbs import *
-from OCC.Core.Geom import Geom_CylindricalSurface, Geom_Plane
+from OCCT.BRepCheck import *
+from OCCT.GeomAbs import *
+from OCCT.TopoDS import TopoDS_Shape
+from OCCT.BRep import BRep_Tool
+from OCCT.TopAbs import *
+from OCCT.Geom import Geom_CylindricalSurface, Geom_Plane
+from OCCT.TopoDS import (TopoDS_Wire, TopoDS_Vertex, TopoDS_Edge,
+                         TopoDS_Face, TopoDS_Shell, TopoDS_Solid,
+                         TopoDS_Compound, TopoDS_CompSolid, TopoDS_Iterator)
 
 
 class ShapeToTopology(object):
     '''
     looks up the topology type and returns the corresponding topological entity
     '''
+
     def __init__(self):
-        self.topoTypes = {TopAbs_VERTEX:      topods.Vertex,
-                          TopAbs_EDGE:        topods.Edge,
-                          TopAbs_FACE:        topods.Face,
-                          TopAbs_WIRE:        topods.Wire,
-                          TopAbs_SHELL:       topods.Shell,
-                          TopAbs_SOLID:       topods.Solid,
-                          TopAbs_COMPOUND:    topods.Compound,
-                          TopAbs_COMPSOLID:   topods.CompSolid,
+        self.topoTypes = {TopAbs_VERTEX: TopoDS_Vertex,
+                          TopAbs_EDGE: TopoDS_Edge,
+                          TopAbs_FACE: TopoDS_Face,
+                          TopAbs_WIRE: TopoDS_Wire,
+                          TopAbs_SHELL: TopoDS_Shell,
+                          TopAbs_SOLID: TopoDS_Solid,
+                          TopAbs_COMPOUND: TopoDS_Compound,
+                          TopAbs_COMPSOLID: TopoDS_CompSolid,
                           }
 
     def __call__(self, shape):
@@ -52,6 +56,7 @@ class EnumLookup(object):
     """
     perform bi-directional lookup of Enums'...
     """
+
     def __init__(self, li_in, li_out):
         self.d = {}
         for a, b in zip(li_in, li_out):
@@ -105,6 +110,7 @@ _geom_types_b = [GeomAbs_Line, GeomAbs_Circle, GeomAbs_Ellipse,
 
 def fix_formatting(_str):
     return [i.strip() for i in _str.split(',')]
+
 
 _brep_check_a = fix_formatting("NoError, InvalidPointOnCurve,\
 InvalidPointOnCurveOnSurface, InvalidPointOnSurface,\

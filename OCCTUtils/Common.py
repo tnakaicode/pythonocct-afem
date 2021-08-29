@@ -1,52 +1,50 @@
 #! /usr/bin/python
 
-##Copyright 2008-2015 Jelle Feringa (jelleferinga@gmail.com)
+# Copyright 2008-2015 Jelle Feringa (jelleferinga@gmail.com)
 ##
-##This file is part of pythonOCC.
+# This file is part of pythonOCC.
 ##
-##pythonOCC is free software: you can redistribute it and/or modify
-##it under the terms of the GNU Lesser General Public License as published by
-##the Free Software Foundation, either version 3 of the License, or
-##(at your option) any later version.
+# pythonOCC is free software: you can redistribute it and/or modify
+# it under the terms of the GNU Lesser General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# (at your option) any later version.
 ##
-##pythonOCC is distributed in the hope that it will be useful,
-##but WITHOUT ANY WARRANTY; without even the implied warranty of
-##MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-##GNU Lesser General Public License for more details.
+# pythonOCC is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU Lesser General Public License for more details.
 ##
-##You should have received a copy of the GNU Lesser General Public License
-##along with pythonOCC.  If not, see <http://www.gnu.org/licenses/>.
+# You should have received a copy of the GNU Lesser General Public License
+# along with pythonOCC.  If not, see <http://www.gnu.org/licenses/>.
 
 import random
 
-from OCC.Core.Bnd import Bnd_Box
-from OCC.Core.BRepBndLib import brepbndlib_Add
-from OCC.Core.TColgp import (TColgp_HArray1OfPnt,
-                             TColgp_Array1OfPnt,
-                             TColgp_Array1OfPnt2d,
-                             TColgp_Array1OfVec)
-from OCC.Core.TColStd import TColStd_HArray1OfBoolean
-from OCC.Core.BRepAdaptor import (BRepAdaptor_Curve, BRepAdaptor_HCurve,
-                                  BRepAdaptor_CompCurve, BRepAdaptor_HCompCurve)
-from OCC.Core.GeomAPI import (GeomAPI_Interpolate, GeomAPI_PointsToBSpline,
-                              GeomAPI_ProjectPointOnCurve)
-from OCC.Core.gp import gp_Pnt, gp_Vec, gp_Trsf
-from OCC.Core.BRepBuilderAPI import BRepBuilderAPI_Transform
-from OCC.Core.TopoDS import TopoDS_Edge, TopoDS_Shape, TopoDS_Wire, TopoDS_Vertex
-from OCC.Core.Quantity import Quantity_Color, Quantity_TOC_RGB
-from OCC.Core.GProp import GProp_GProps
-from OCC.Core.GeomAbs import GeomAbs_C1, GeomAbs_C2, GeomAbs_C3
-from OCC.Core.BRepGProp import (brepgprop_LinearProperties,
-                                brepgprop_SurfaceProperties,
-                                brepgprop_VolumeProperties)
-from OCC.Core.GeomAdaptor import GeomAdaptor_Curve
-from OCC.Core.Geom import Geom_Curve
+from OCCT.Bnd import Bnd_Box
+from OCCT.BRepBndLib import BRepBndLib
+from OCCT.TColgp import (TColgp_HArray1OfPnt,
+                         TColgp_Array1OfPnt,
+                         TColgp_Array1OfPnt2d,
+                         TColgp_Array1OfVec)
+from OCCT.TColStd import TColStd_HArray1OfBoolean
+from OCCT.BRepAdaptor import (BRepAdaptor_Curve, BRepAdaptor_HCurve,
+                              BRepAdaptor_CompCurve, BRepAdaptor_HCompCurve)
+from OCCT.GeomAPI import (GeomAPI_Interpolate, GeomAPI_PointsToBSpline,
+                          GeomAPI_ProjectPointOnCurve)
+from OCCT.gp import gp_Pnt, gp_Vec, gp_Trsf
+from OCCT.BRepBuilderAPI import BRepBuilderAPI_Transform
+from OCCT.TopoDS import TopoDS_Edge, TopoDS_Shape, TopoDS_Wire, TopoDS_Vertex
+from OCCT.Quantity import Quantity_Color, Quantity_TOC_RGB
+from OCCT.GProp import GProp_GProps
+from OCCT.GeomAbs import GeomAbs_C1, GeomAbs_C2, GeomAbs_C3
+from OCCT.BRepGProp import BRepGProp_Cinert, BRepGProp_Domain, BRepGProp_EdgeTool
+from OCCT.GeomAdaptor import GeomAdaptor_Curve
+from OCCT.Geom import Geom_Curve
 
 from OCC.Core import Graphic3d
 
-#===========================================================================
+# ===========================================================================
 # No PythonOCC dependencies...
-#===========================================================================
+# ===========================================================================
 
 
 class assert_isdone(object):
@@ -54,6 +52,7 @@ class assert_isdone(object):
     raises an assertion error when IsDone() returns false, with the error
     specified in error_statement
     '''
+
     def __init__(self, to_check, error_statement):
         self.to_check = to_check
         self.error_statement = error_statement
@@ -71,9 +70,10 @@ class assert_isdone(object):
 def roundlist(li, n_decimals=3):
     return [round(i, n_decimals) for i in li]
 
-#===========================================================================
+# ===========================================================================
 # CONSTANTS
-#===========================================================================
+# ===========================================================================
+
 
 TOLERANCE = 1e-6
 
@@ -93,18 +93,18 @@ def get_boundingbox(shape, tol=TOLERANCE):
 
 def smooth_pnts(pnts):
     smooth = [pnts[0]]
-    for i in range(1, len(pnts)-1):
-        prev = pnts[i-1]
+    for i in range(1, len(pnts) - 1):
+        prev = pnts[i - 1]
         this = pnts[i]
-        next_pnt = pnts[i+1]
-        pt = (prev+this+next_pnt) / 3.0
+        next_pnt = pnts[i + 1]
+        pt = (prev + this + next_pnt) / 3.0
         smooth.append(pt)
     smooth.append(pnts[-1])
     return smooth
 
-#===========================================================================
+# ===========================================================================
 # Data type utilities
-#===========================================================================
+# ===========================================================================
 
 
 def color(r, g, b):
@@ -112,20 +112,20 @@ def color(r, g, b):
 
 
 def to_string(_string):
-    from OCC.Core.TCollection import TCollection_ExtendedString
+    from OCCT.TCollection import TCollection_ExtendedString
     return TCollection_ExtendedString(_string)
 
 
 def to_tcol_(_list, collection_type):
-    array = collection_type(1, len(_list)+1)
+    array = collection_type(1, len(_list) + 1)
     for n, i in enumerate(_list):
-        array.SetValue(n+1, i)
+        array.SetValue(n + 1, i)
     return array
 
 
 def _Tcol_dim_1(li, _type):
     '''function factory for 1-dimensional TCol* types'''
-    pts = _type(0, len(li)-1)
+    pts = _type(0, len(li) - 1)
     for n, i in enumerate(li):
         pts.SetValue(n, i)
     pts.thisown = False
@@ -133,7 +133,7 @@ def _Tcol_dim_1(li, _type):
 
 
 def point_list_to_TColgp_Array1OfPnt(li):
-    pts = TColgp_Array1OfPnt(0, len(li)-1)
+    pts = TColgp_Array1OfPnt(0, len(li) - 1)
     for n, i in enumerate(li):
         pts.SetValue(n, i)
     return pts
@@ -142,9 +142,9 @@ def point_list_to_TColgp_Array1OfPnt(li):
 def point2d_list_to_TColgp_Array1OfPnt2d(li):
     return _Tcol_dim_1(li, TColgp_Array1OfPnt2d)
 
-#===========================================================================
+# ===========================================================================
 # --- INTERPOLATION ---
-#===========================================================================
+# ===========================================================================
 
 
 def filter_points_by_distance(list_of_point, distance=0.1):
@@ -179,7 +179,7 @@ def interpolate_points_to_spline(list_of_points, start_tangent, end_tangent, fil
         '''function factory for 1-dimensional TCol* types'''
         pts = _type(1, len(li))
         for n, i in enumerate(li):
-            pts.SetValue(n+1, i)
+            pts.SetValue(n + 1, i)
         pts.thisown = False
         return pts
 
@@ -204,18 +204,20 @@ def interpolate_points_vectors_to_spline(list_of_points, list_of_vectors, vector
     '''
     # GeomAPI_Interpolate is buggy: need to use `fix` in order to
     # get the right points in...
-    assert len(list_of_points) == len(list_of_vectors), 'vector and point list not of same length'
+    assert len(list_of_points) == len(
+        list_of_vectors), 'vector and point list not of same length'
 
     def fix(li, _type):
         '''function factory for 1-dimensional TCol* types'''
         pts = _type(1, len(li))
         for n, i in enumerate(li):
-            pts.SetValue(n+1, i)
+            pts.SetValue(n + 1, i)
         pts.thisown = False
         return pts
 
     if vector_mask is not None:
-        assert len(vector_mask) == len(list_of_points), 'length vector mask is not of length points list nor []'
+        assert len(vector_mask) == len(
+            list_of_points), 'length vector mask is not of length points list nor []'
     else:
         vector_mask = [True for i in range(len(list_of_points))]
 
@@ -243,7 +245,7 @@ def interpolate_points_to_spline_no_tangency(list_of_points, filter_pts=True, cl
         '''function factory for 1-dimensional TCol* types'''
         pts = _type(1, len(li))
         for n, i in enumerate(li):
-            pts.SetValue(n+1, i)
+            pts.SetValue(n + 1, i)
         pts.thisown = False
         return pts
 
@@ -261,9 +263,10 @@ def interpolate_points_to_spline_no_tangency(list_of_points, filter_pts=True, cl
         # the exception was unclear
         raise RuntimeError('FAILED TO INTERPOLATE THE POINTS')
 
-#===========================================================================
+# ===========================================================================
 # --- RANDOMNESS ---
-#===========================================================================
+# ===========================================================================
+
 
 def random_vec():
     x, y, z = [random.uniform(-1, 1) for i in range(3)]
@@ -280,13 +283,13 @@ def random_colored_material_aspect():
 def random_color():
     return color(random.random(), random.random(), random.random())
 
-#===========================================================================
+# ===========================================================================
 # --- BUILD PATCHES ---
-#===========================================================================
+# ===========================================================================
 
 
 def common_vertex(edg1, edg2):
-    from OCC.Core.TopExp import topexp_CommonVertex
+    from OCCT.TopExp import topexp_CommonVertex
     vert = TopoDS_Vertex()
     if topexp_CommonVertex(edg1, edg2, vert):
         return vert
@@ -302,7 +305,7 @@ def midpoint(pntA, pntB):
     '''
     vec1 = gp_Vec(pntA.XYZ())
     vec2 = gp_Vec(pntB.XYZ())
-    veccie = (vec1+vec2)/2.
+    veccie = (vec1 + vec2) / 2.
     return gp_Pnt(veccie.XYZ())
 
 
@@ -339,8 +342,8 @@ def point_in_solid(solid, pnt, tolerance=1e-5):
 
     Returns: bool
     """
-    from OCC.Core.BRepClass3d import BRepClass3d_SolidClassifier
-    from OCC.Core.TopAbs import TopAbs_ON, TopAbs_OUT, TopAbs_IN
+    from OCCT.BRepClass3d import BRepClass3d_SolidClassifier
+    from OCCT.TopAbs import TopAbs_ON, TopAbs_OUT, TopAbs_IN
     _in_solid = BRepClass3d_SolidClassifier(solid, pnt, tolerance)
     print("State", _in_solid.State())
     if _in_solid.State() == TopAbs_ON:
@@ -360,7 +363,7 @@ def intersection_from_three_planes(planeA, planeB, planeC):
     @param planeC:
     @param show:
     '''
-    from OCC.Core.IntAna import IntAna_Int3Pln
+    from OCCT.IntAna import IntAna_Int3Pln
 
     planeA = planeA if not hasattr(planeA, 'Pln') else planeA.Pln()
     planeB = planeB if not hasattr(planeB, 'Pln') else planeB.Pln()
@@ -387,7 +390,7 @@ def intersect_shape_by_line(topods_shape, line, low_parameter=0.0, hi_parameter=
     and the u,v,w parameters of the intersection point
     :raise:
     """
-    from OCC.Core.IntCurvesFace import IntCurvesFace_ShapeIntersector
+    from OCCT.IntCurvesFace import IntCurvesFace_ShapeIntersector
     shape_inter = IntCurvesFace_ShapeIntersector()
     shape_inter.Load(topods_shape, TOLERANCE)
     shape_inter.PerformNearest(line, low_parameter, hi_parameter)
@@ -408,20 +411,20 @@ def normal_vector_from_plane(plane, vec_length=1.):
     trns = gp_Vec(plane.Axis().Direction())
     return trns.Normalized() * vec_length
 
-#===========================================================================
+# ===========================================================================
 # FIX
-#===========================================================================
+# ===========================================================================
 
 
 def fix_tolerance(shape, tolerance=TOLERANCE):
-    from OCC.Core.ShapeFix import ShapeFix_ShapeTolerance
+    from OCCT.ShapeFix import ShapeFix_ShapeTolerance
     ShapeFix_ShapeTolerance().SetTolerance(shape, tolerance)
 
 
 def fix_continuity(edge, continuity=1):
-    from OCC.Core.ShapeUpgrade import ShapeUpgrade_ShapeDivideContinuity
+    from OCCT.ShapeUpgrade import ShapeUpgrade_ShapeDivideContinuity
     su = ShapeUpgrade_ShapeDivideContinuity(edge)
-    su.SetBoundaryCriterion(eval('GeomAbs_C'+str(continuity)))
+    su.SetBoundaryCriterion(eval('GeomAbs_C' + str(continuity)))
     su.Perform()
     te = st(su.Result())
     return te
@@ -433,18 +436,19 @@ def resample_curve_with_uniform_deflection(curve, deflection=0.5, degreeMin=3, d
     @param curve: TopoDS_Wire, TopoDS_Edge, curve
     @param n_samples:
     '''
-    from OCC.Core.GCPnts import GCPnts_UniformDeflection
+    from OCCT.GCPnts import GCPnts_UniformDeflection
     crv = to_adaptor_3d(curve)
     defl = GCPnts_UniformDeflection(crv, deflection)
     with assert_isdone(defl, 'failed to compute UniformDeflection'):
         print("Number of points:", defl.NbPoints())
     sampled_pnts = [defl.Value(i) for i in xrange(1, defl.NbPoints())]
-    resampled_curve = GeomAPI_PointsToBSpline(point_list_to_TColgp_Array1OfPnt(sampled_pnts), degreeMin, degreeMax, continuity, tolerance)
+    resampled_curve = GeomAPI_PointsToBSpline(point_list_to_TColgp_Array1OfPnt(
+        sampled_pnts), degreeMin, degreeMax, continuity, tolerance)
     return resampled_curve.Curve().GetObject()
 
-#===========================================================================
+# ===========================================================================
 # global properties
-#===========================================================================
+# ===========================================================================
 
 
 class GpropsFromShape(object):
@@ -478,14 +482,15 @@ def curve_length(crv):
     '''
     get the length from a TopoDS_Edge or TopoDS_Wire
     '''
-    assert isinstance(crv, (TopoDS_Wire, TopoDS_Edge)), 'either a wire or edge...'
+    assert isinstance(crv, (TopoDS_Wire, TopoDS_Edge)
+                      ), 'either a wire or edge...'
     gprop = GpropsFromShape(crv)
     return gprop.linear().Mass()
 
 
-#=======================================================================
+# =======================================================================
 # Distance
-#=======================================================================
+# =======================================================================
 
 def minimum_distance(shp1, shp2):
     '''
@@ -497,13 +502,13 @@ def minimum_distance(shp1, shp2):
              minimum distance points on shp1
              minimum distance points on shp2
     '''
-    from OCC.Core.BRepExtrema import BRepExtrema_DistShapeShape
+    from OCCT.BRepExtrema import BRepExtrema_DistShapeShape
     bdss = BRepExtrema_DistShapeShape(shp1, shp2)
     bdss.Perform()
     with assert_isdone(bdss, 'failed computing minimum distances'):
         min_dist = bdss.Value()
         min_dist_shp1, min_dist_shp2 = [], []
-        for i in range(1, bdss.NbSolution()+1):
+        for i in range(1, bdss.NbSolution() + 1):
             min_dist_shp1.append(bdss.PointOnShape1(i))
             min_dist_shp2.append(bdss.PointOnShape2(i))
     return min_dist, min_dist_shp1, min_dist_shp2
@@ -512,7 +517,7 @@ def minimum_distance(shp1, shp2):
 def vertex2pnt(vertex):
     '''returns a gp_Pnt from a TopoDS_Vertex
     '''
-    from OCC.Core.Core.BRep import BRep_Tool
+    from OCCT.Core.BRep import BRep_Tool
     return BRep_Tool.Pnt(vertex)
 
 
@@ -546,7 +551,8 @@ def to_adaptor_3d(curveType):
         if issubclass(_crv.__class__, Geom_Curve):
             return GeomAdaptor_Curve(curveType)
     else:
-        raise TypeError('allowed types are Wire, Edge or a subclass of Geom_Curve\nGot a %s' % (curveType.__class__))
+        raise TypeError('allowed types are Wire, Edge or a subclass of Geom_Curve\nGot a %s' % (
+            curveType.__class__))
 
 
 def project_point_on_curve(crv, pnt):
@@ -565,7 +571,7 @@ def project_point_on_plane(plane, point):
     @param plane: Geom_Plane
     @param point: gp_Pnt
     '''
-    from OCC.Core.ProjLib import projlib_Project
+    from OCCT.ProjLib import projlib_Project
     pl = plane.Pln()
     aa, bb = projlib_Project(pl, point).Coord()
     point = plane.Value(aa, bb)
@@ -580,7 +586,7 @@ def wire_to_curve(wire, tolerance=TOLERANCE, order=GeomAbs_C2, max_segment=200, 
     '''
     adap = BRepAdaptor_CompCurve(wire)
     hadap = BRepAdaptor_HCompCurve(adap)
-    from OCC.Core.Approx import Approx_Curve3d
+    from OCCT.Approx import Approx_Curve3d
     approx = Approx_Curve3d(hadap, tolerance, order, max_segment, max_order)
     with assert_isdone(approx, 'not able to compute approximation from wire'):
         return approx.Curve().GetObject()

@@ -1,24 +1,24 @@
-##Copyright 2008-2015 Jelle Feringa (jelleferinga@gmail.com)
+# Copyright 2008-2015 Jelle Feringa (jelleferinga@gmail.com)
 ##
-##This file is part of pythonOCC.
+# This file is part of pythonOCC.
 ##
-##pythonOCC is free software: you can redistribute it and/or modify
-##it under the terms of the GNU Lesser General Public License as published by
-##the Free Software Foundation, either version 3 of the License, or
-##(at your option) any later version.
+# pythonOCC is free software: you can redistribute it and/or modify
+# it under the terms of the GNU Lesser General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# (at your option) any later version.
 ##
-##pythonOCC is distributed in the hope that it will be useful,
-##but WITHOUT ANY WARRANTY; without even the implied warranty of
-##MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-##GNU Lesser General Public License for more details.
+# pythonOCC is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU Lesser General Public License for more details.
 ##
-##You should have received a copy of the GNU Lesser General Public License
-##along with pythonOCC.  If not, see <http://www.gnu.org/licenses/>.
+# You should have received a copy of the GNU Lesser General Public License
+# along with pythonOCC.  If not, see <http://www.gnu.org/licenses/>.
 
 '''
 This module helps looping through topology
 '''
-from OCC.Core.BRep import BRep_Tool
+from OCCT.BRep import BRep_Tool
 
 from OCCTUtils.Topology import WireExplorer, Topo
 from OCCTUtils.edge import Edge
@@ -28,6 +28,7 @@ class EdgePairsFromWire(object):
     '''
     helper class to loop through a wire and return ordered pairs of edges
     '''
+
     def __init__(self, wire):
         self.wire = wire
         self.edge_pairs = []
@@ -47,7 +48,7 @@ class EdgePairsFromWire(object):
             self.first_edge = self.previous_edge   # for the last iteration
             self.index += 1
             return [self.previous_edge, self.current_edge]
-        elif self.index == self.number_of_edges-1:
+        elif self.index == self.number_of_edges - 1:
             # no next edge
             self.index += 1
             return [self.current_edge, self.first_edge]
@@ -66,6 +67,7 @@ class LoopWirePairs(object):
     for looping through consequtive wires
     assures that the returned edge pairs are ordered
     '''
+
     def __init__(self, wireA, wireB):
         self.wireA = wireA
         self.wireB = wireB

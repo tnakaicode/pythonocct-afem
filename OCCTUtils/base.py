@@ -1,19 +1,19 @@
-##Copyright 2008-2013 Jelle Feringa (jelleferinga@gmail.com)
+# Copyright 2008-2013 Jelle Feringa (jelleferinga@gmail.com)
 ##
-##This file is part of pythonOCC.
+# This file is part of pythonOCC.
 ##
-##pythonOCC is free software: you can redistribute it and/or modify
-##it under the terms of the GNU Lesser General Public License as published by
-##the Free Software Foundation, either version 3 of the License, or
-##(at your option) any later version.
+# pythonOCC is free software: you can redistribute it and/or modify
+# it under the terms of the GNU Lesser General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# (at your option) any later version.
 ##
-##pythonOCC is distributed in the hope that it will be useful,
-##but WITHOUT ANY WARRANTY; without even the implied warranty of
-##MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-##GNU Lesser General Public License for more details.
+# pythonOCC is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU Lesser General Public License for more details.
 ##
-##You should have received a copy of the GNU Lesser General Public License
-##along with pythonOCC.  If not, see <http://www.gnu.org/licenses/>
+# You should have received a copy of the GNU Lesser General Public License
+# along with pythonOCC.  If not, see <http://www.gnu.org/licenses/>
 
 '''
 Please note the following;
@@ -37,22 +37,22 @@ Can be a module, class or namespace.
 
 import functools
 
-from OCC.Core.BRepBuilderAPI import BRepBuilderAPI_Copy
-from OCC.Core.BRepGProp import (brepgprop_VolumeProperties,
-                                brepgprop_LinearProperties,
-                                brepgprop_SurfaceProperties)
-from OCC.Core.BRepCheck import (BRepCheck_Vertex, BRepCheck_Edge, BRepCheck_Wire,
-                                BRepCheck_Face, BRepCheck_Shell, BRepCheck_Analyzer)
-from OCC.Core.GProp import GProp_GProps
+from OCCT.BRepBuilderAPI import BRepBuilderAPI_Copy
+# from OCCT.BRepGProp import (brepgprop_VolumeProperties,
+#                                brepgprop_LinearProperties,
+#                                brepgprop_SurfaceProperties)
+from OCCT.BRepCheck import (BRepCheck_Vertex, BRepCheck_Edge, BRepCheck_Wire,
+                            BRepCheck_Face, BRepCheck_Shell, BRepCheck_Analyzer)
+from OCCT.GProp import GProp_GProps
 from OCC.Display.SimpleGui import init_display
 
 from OCCTUtils.Common import get_boundingbox
 from OCCTUtils.Construct import (make_vertex, TOLERANCE)
 from OCCTUtils.types_lut import shape_lut, topo_lut, curve_lut, surface_lut
 
-#===========================================================================
+# ===========================================================================
 # DISPLAY
-#===========================================================================
+# ===========================================================================
 global display
 
 
@@ -76,13 +76,14 @@ class Display(object):
     def __call__(self, *args, **kwargs):
         return self.display.DisplayShape(*args, **kwargs)
 
-#============
+# ============
 # base class
-#============
+# ============
 
 
 class BaseObject(object):
     """base class for all objects"""
+
     def __init__(self, name=None, tolerance=TOLERANCE):
         self.GlobalProperties = GlobalProperties(self)
         self.name = name
@@ -187,6 +188,7 @@ class GlobalProperties(object):
     '''
     global properties for all topologies
     '''
+
     def __init__(self, instance):
         self.instance = instance
 

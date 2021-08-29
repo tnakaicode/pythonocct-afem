@@ -1,23 +1,23 @@
-##Copyright 2008-2013 Jelle Feringa (jelleferinga@gmail.com)
+# Copyright 2008-2013 Jelle Feringa (jelleferinga@gmail.com)
 ##
-##This file is part of pythonOCC.
+# This file is part of pythonOCC.
 ##
-##pythonOCC is free software: you can redistribute it and/or modify
-##it under the terms of the GNU Lesser General Public License as published by
-##the Free Software Foundation, either version 3 of the License, or
-##(at your option) any later version.
+# pythonOCC is free software: you can redistribute it and/or modify
+# it under the terms of the GNU Lesser General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# (at your option) any later version.
 ##
-##pythonOCC is distributed in the hope that it will be useful,
-##but WITHOUT ANY WARRANTY; without even the implied warranty of
-##MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-##GNU Lesser General Public License for more details.
+# pythonOCC is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU Lesser General Public License for more details.
 ##
-##You should have received a copy of the GNU Lesser General Public License
-##along with pythonOCC.  If not, see <http://www.gnu.org/licenses/>
+# You should have received a copy of the GNU Lesser General Public License
+# along with pythonOCC.  If not, see <http://www.gnu.org/licenses/>
 
-from OCC.Core.gp import gp_Pnt, gp_Vec, gp_Dir, gp_XYZ, gp_Pnt2d
-from OCC.Core.TopoDS import TopoDS_Vertex
-from OCC.Core.ShapeBuild import ShapeBuild_ReShape
+from OCCT.gp import gp_Pnt, gp_Vec, gp_Dir, gp_XYZ, gp_Pnt2d
+from OCCT.TopoDS import TopoDS_Vertex
+from OCCT.ShapeBuild import ShapeBuild_ReShape
 
 from OCCTUtils.base import BaseObject
 from OCCTUtils.Construct import make_vertex
