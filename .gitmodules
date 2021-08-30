@@ -1,3 +1,6 @@
 [submodule "pythonocct"]
 	path = pythonocct
 	url = https://github.com/trelau/pyOCCT.git
+[submodule "pythonocct-smesh"]
+	path = pythonocct-smesh
+	url = https://github.com/trelau/pySMESH.git
